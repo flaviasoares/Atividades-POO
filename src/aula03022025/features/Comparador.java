@@ -1,4 +1,4 @@
-package features;
+package aula03022025.features;
 
 public class Comparador {
     private double areaX, areaY;

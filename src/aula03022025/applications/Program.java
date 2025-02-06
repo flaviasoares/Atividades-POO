@@ -5,7 +5,7 @@ import java.util.Scanner;
 import aula03022025.entities.Circle;
 import aula03022025.entities.Rectangle;
 import aula03022025.entities.Triangle;
-import features.Comparador;
+import aula03022025.features.Comparador;
 
 public class Program {
     public static void main(String[] args) {
