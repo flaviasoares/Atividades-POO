@@ -1,7 +1,6 @@
 package aula05022025.applications;
 
 import java.util.Scanner;
-
 import aula05022025.entities.Product;
 import aula05022025.shared.PrintDataProduct;
 
@@ -18,18 +17,18 @@ public class Program {
         int quantity = scanner.nextInt();
 
         Product product = new Product(name, price, quantity);
+        double totalValueInStock = product.totalValueInStock();
 
         System.out.println("Add unities of stock:");
         quantity = scanner.nextInt();
         product.addProducts(quantity);
-        // System.out.println("");
+        System.out.println(PrintDataProduct.print(name, quantity, totalValueInStock));
 
         System.out.println("Remove unities of stock:");
         quantity = scanner.nextInt();
         product.removeProducts(quantity);
-        double totalValueInStock = product.totalValueInStock();
-        PrintDataProduct printDataProduct = new PrintDataProduct(name, quantity, totalValueInStock);
-
+        System.out.println(PrintDataProduct.print(name, quantity, totalValueInStock));
+    
         scanner.close();
     }
 }
