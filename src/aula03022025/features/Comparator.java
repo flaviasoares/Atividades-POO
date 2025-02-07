@@ -1,22 +1,13 @@
 package aula03022025.features;
 
 public class Comparator {
-    private double areaX, areaY;
-    private String formato;
-
-    public Comparator(double areaX, double areaY, String formato) {
-        this.areaX = areaX;
-        this.areaY = areaY;
-        this.formato = formato;
-    }
-
-    public String maiorOuIgual() {
-        if (this.areaX > this.areaY) {
-            return "A área do " + this.formato + " X é maior.";
-        } else if (this.areaX < this.areaY) {
-            return "A área do " + this.formato + " Y é maior.";
+    public static String maiorOuIgual(double areaX, double areaY, String formato) {
+        if (areaX > areaY) {
+            return "A área do " + formato + " X é maior.";
+        } else if (areaX < areaY) {
+            return "A área do " + formato + " Y é maior.";
         } else {
-            return "A áreas dos " + this.formato + "s são iguais.";
+            return "As áreas dos " + formato + "s são iguais.";
         }
     }
 }

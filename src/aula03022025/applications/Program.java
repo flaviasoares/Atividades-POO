@@ -11,10 +11,9 @@ public class Program {
     public static void main(String[] args) {
         double a, b, c, r, areaX, areaY;
         String formato, formato1, formato2;
-        Comparator comparator;
 
         System.out.println("Escolha uma das opções abaixo para calcular a sua área:");
-        System.out.println("1. Triângulo\n2. Rectangle/Quadrado\n3. Circle");
+        System.out.println("1. Triângulo\n2. Retângulo/Quadrado\n3. Círculo");
         Scanner scanner = new Scanner(System.in);
         int opcao = scanner.nextInt();
 
@@ -36,11 +35,9 @@ public class Program {
             areaY = triangle.areaTriangle();
             
             scanner.close();
-            
-            comparator = new Comparator(areaX, areaY, formato);
             System.out.printf("Área do triângulo X: %.2f\n", areaX);
             System.out.printf("Área do triângulo Y: %.2f\n", areaY);
-            System.out.println(comparator.maiorOuIgual());
+            System.out.println(Comparator.maiorOuIgual(areaX, areaY, formato));
         } else if (opcao == 2) {
             System.out.println("Entre com as medidas dos lados do retângulo/quadrado X: ");
             a = scanner.nextDouble();
@@ -57,10 +54,9 @@ public class Program {
             scanner.close();
 
             if (formato1 == formato2) {
-                comparator = new Comparator(areaX, areaY, formato1);
                 System.out.printf("Área do %s X: %.2f\n", formato1, areaX);
                 System.out.printf("Área do %s Y: %.2f\n", formato2, areaY);
-                System.out.println(comparator.maiorOuIgual());
+                System.out.println(Comparator.maiorOuIgual(areaX, areaY, formato1));
             } else {
                 System.out.printf("Área do %s X: %.2f\n", formato1, areaX);
                 System.out.printf("Área do %s Y: %.2f\n", formato2, areaY);
@@ -79,17 +75,15 @@ public class Program {
             r = scanner.nextDouble();
             areaX = new Circle(r).areaCircle();
 
-            System.out.println("Entre com a medida do raio do círculo X:");
+            System.out.println("Entre com a medida do raio do círculo Y:");
             r = scanner.nextDouble();
             areaY = new Circle(r).areaCircle();
 
             scanner.close();
 
-            comparator = new Comparator(areaX, areaY, formato);
-
             System.out.printf("Área do círculo X: %.2f\n", areaX);
             System.out.printf("Área do círculo Y: %.2f\n", areaY);
-            System.out.println(comparator.maiorOuIgual());
+            System.out.println(Comparator.maiorOuIgual(areaX, areaY, formato));
         } else {
             System.out.println("O valor digatado é inválido.");
         }
