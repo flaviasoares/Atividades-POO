@@ -11,8 +11,10 @@ public class Program {
         System.out.println("Enter the product data:");
         System.out.println("Name:");
         String name = scanner.nextLine();
+
         System.out.println("Price:");
         double price = scanner.nextDouble();
+        
         System.out.println("Quantity:");
         int quantity = scanner.nextInt();
 

@@ -1,10 +1,10 @@
 package aula03022025.features;
 
-public class Comparador {
+public class Comparator {
     private double areaX, areaY;
     private String formato;
 
-    public Comparador(double areaX, double areaY, String formato) {
+    public Comparator(double areaX, double areaY, String formato) {
         this.areaX = areaX;
         this.areaY = areaY;
         this.formato = formato;
@@ -16,7 +16,7 @@ public class Comparador {
         } else if (this.areaX < this.areaY) {
             return "A área do " + this.formato + " Y é maior.";
         } else {
-            return "A áreas dos " + this.formato + " s são iguais";
+            return "A áreas dos " + this.formato + "s são iguais.";
         }
     }
 }
