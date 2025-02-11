@@ -9,11 +9,11 @@ public class Product {
         this.price = price;
     }
 
-    public String getName(String name) {
-        return this.name; // editar aqui
-    }
+    // public String getName() {
+    //     return this.name; // editar aqui
+    // }
 
-    public double getPrice(double price) {
-        return this.price; // editar aqui
-    }
+    // public double getPrice() {
+    //     return this.price; // editar aqui
+    // }
 }
