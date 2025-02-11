@@ -2,7 +2,6 @@ package aula10022025.applications;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import aula10022025.entities.Product;
 import aula10022025.entities.ShoppingCart;
 
@@ -38,16 +37,23 @@ public class Programa {
             }
         }
 
-        System.out.println("Deseja remover algum produto?");
-        System.out.println("1. Sim\n2. Não\n");
-        decisionRemove = scanner.nextInt();
-        if (decisionRemove == 1) {
-            System.out.println("Qual produto deseja remover?");
-            nameProduct = scanner.next();
-            System.out.println("Quantos do mesmo produto deseja remover?");
-            quantityRemove = scanner.nextInt();
-            shoppingCart.removeProduct(nameProduct, quantityRemove);
-        }
+        shoppingCart.getContents();
+        
+        // while (removeProduct) {
+        //     System.out.println("Deseja remover algum produto?");
+        //     System.out.println("1. Sim\n2. Não\n");
+        //     decisionRemove = scanner.nextInt();
+
+        //     if (decisionRemove == 1) {
+        //         System.out.println("Qual produto deseja remover?");
+        //         nameProduct = scanner.next();
+        //         System.out.println("Quantos do mesmo produto deseja remover?");
+        //         quantityRemove = scanner.nextInt();
+        //         shoppingCart.removeProduct(nameProduct, quantityRemove);
+        //     } else {
+        //         removeProduct = false;
+        //     }
+        // }
 
         scanner.close();
 

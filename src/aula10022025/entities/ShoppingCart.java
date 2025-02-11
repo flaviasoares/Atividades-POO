@@ -18,25 +18,32 @@ public class ShoppingCart {
         this.productList.add(product);
     }
 
-    public void removeProduct(String productName, int quantityRemove) {
-        int quantityProduct = getItemCount(productName);
-        if (quantityRemove == quantityProduct) {
-            this.productList.removeIf(product -> product.getName().equals(productName));
-        }
-
-        else {}
-    }
-    
-    // public String getContents() {
-    //     return ; 
+    // public void removeProduct(String productName, int quantityRemove) {
+    //     int quantityProduct = getItemCount(productName);
+    //     if (quantityRemove == quantityProduct) {
+    //         this.productList.removeIf(product -> product.getName().equals(productName));
+    //     } else {
+    //         int count = 0;
+    //         while (count < 2) {
+    //             if (this.productList(product).equals(productName) ) {
+    //                 this.productList.remove(product);
+    //                 count++;
+    //             }
+    //             else break;
+    //         }
+    //     }
     // }
+    
+    public String getContents() {
+        return "Nome: " + product.getName() + ", Preço: " + product.getPrice();
+    }
 
     // public int getCustomerID() {
     //     return 1; //editar aqui
     // }
 
     public int getItemCount(String productName) {
-        return this.productList.stream().filter(product -> product.getName().equals(productName)).count();
+        return (int) this.productList.stream().filter(product -> product.getName().equals(productName)).count();
     }
 
     // public double getTotalPrice() {
