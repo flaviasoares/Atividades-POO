@@ -1,18 +1,20 @@
 package aula10022025.entities;
 
 import java.util.ArrayList;
+import aula05022025.entities.Product;
 
 public class ShoppingCart {
     private int customerID;
-    private ArrayList<String> productList = new ArrayList<String>();
+    private ArrayList<Product> productList = new ArrayList<Product>();
 
-    public ShoppingCart(int customerID, ArrayList<String> productList) {
+    public ShoppingCart(int customerID, ArrayList<Product> productList) {
         this.customerID = customerID;
         this.productList = productList;
     }
 
     public void addProduct(String productName, double productPrice) {
-        productList.add(productName, productPrice);
+        Product product = new Product();
+        productList.add(product));
     }
 
     public void removeProduct() {
