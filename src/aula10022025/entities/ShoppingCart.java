@@ -15,7 +15,6 @@ public class ShoppingCart {
         this.productList = productList;
     }
 
-    // esse método está funcionando
     public void addProduct(String productName, double productPrice) {
         product = new Product(productName, productPrice);
         this.productList.add(product); // o uso so this. aqui é dispensável?
