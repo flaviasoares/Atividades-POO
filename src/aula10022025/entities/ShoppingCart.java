@@ -7,8 +7,8 @@ import java.util.Iterator;
 public class ShoppingCart {
     private int customerID;
     private ArrayList<Product> productList = new ArrayList<Product>();
-    private ArrayList<Product> auxList;
-    Product product;
+    private ArrayList<Product> auxList; // posso declarar assim?
+    Product product; // tem problema declarar assim?
 
     public ShoppingCart(int customerID, ArrayList<Product> productList) {
         this.customerID = customerID;
@@ -18,7 +18,7 @@ public class ShoppingCart {
     // esse método está funcionando
     public void addProduct(String productName, double productPrice) {
         product = new Product(productName, productPrice);
-        this.productList.add(product);
+        this.productList.add(product); // o uso so this. aqui é dispensável?
     }
 
     public void removeProduct(String productName, int quantityRemove) {
@@ -41,7 +41,7 @@ public class ShoppingCart {
     }
     
     public String getContents() {
-        auxList = productList;
+        auxList = productList; // estou usando essa variável porque não entendi bem o que .stream faz com a lista
         return auxList.stream().map(product -> "Nome: " + product.getName() + ", Preço: " + product.getPrice()).collect(Collectors.joining("\n"));
     }
 
@@ -50,12 +50,12 @@ public class ShoppingCart {
     }
 
     public int getItemCount(String productName) {
-        auxList = productList;
+        auxList = productList; // estou usando essa variável porque não entendi bem o que .stream faz com a lista
         return (int) auxList.stream().filter(product -> product.getName().equals(productName)).count();
     }
 
     public double getTotalPrice() {
-        auxList = productList;
+        auxList = productList; // estou usando essa variável porque não entendi bem o que .stream faz com a lista
         return auxList.stream().mapToDouble(Product::getPrice).sum();
     }
 }
