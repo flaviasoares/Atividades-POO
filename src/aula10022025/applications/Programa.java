@@ -8,7 +8,7 @@ import aula10022025.entities.ShoppingCart;
 public class Programa {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        // int quantityRemove;
+        int quantityRemove;
         String nameProduct;
         double priceProduct;
         ArrayList<Product> productList = new ArrayList<Product>();
@@ -19,7 +19,7 @@ public class Programa {
 
         boolean addProduct = true;
         int decisionAdd;
-
+        // adicionar produtos no carrinho
         while (addProduct) {
             System.out.println("Digite o nome do produto:");
             nameProduct = scanner.next();
@@ -29,7 +29,7 @@ public class Programa {
             shoppingCart.addProduct(nameProduct, priceProduct);
 
             System.out.println("Deseja adicionar mais algum produto?");
-            System.out.println("1. Sim\n2. Não\n");
+            System.out.println("1. Sim\n2. Não");
             decisionAdd = scanner.nextInt();
 
             if (decisionAdd == 2) {
@@ -37,35 +37,41 @@ public class Programa {
             }
         }
         
+        // listagem dos produtos no carrinho
         String productsPrint = shoppingCart.getContents();
-        System.out.printf("Lista de produtos:\n%s", productsPrint);
+        System.out.printf("Lista de produtos:\n%s\n", productsPrint);
         
+        // valor total dos produtos no carrinho
         double totalPrice = shoppingCart.getTotalPrice();
         System.out.printf("O valor total da compra é %.2f\n", totalPrice);
 
-        // quantidade de produtos com mesmo nome
-        // int quantityProduct = shoppingCart.getItemCount("computador");
-        // System.out.printf("O seu carrinho contém %d computadores.\n", quantityProduct);
+        boolean removeProduct = true;
+        int decisionRemove;
+        // remover produtos do carrinho
+        while (removeProduct) {
+            System.out.println("Deseja remover algum produto?");
+            System.out.println("1. Sim\n2. Não");
+            decisionRemove = scanner.nextInt();
 
-        // boolean removeProduct = true;
-        // int decisionRemove;
-        
-        // while (removeProduct) {
-        //     System.out.println("Deseja remover algum produto?");
-        //     System.out.println("1. Sim\n2. Não\n");
-        //     decisionRemove = scanner.nextInt();
-
-        //     if (decisionRemove == 1) {
-        //         System.out.println("Qual produto deseja remover?");
-        //         nameProduct = scanner.next();
-        //         System.out.println("Quantos do mesmo produto deseja remover?");
-        //         quantityRemove = scanner.nextInt();
-        //         shoppingCart.removeProduct(nameProduct, quantityRemove);
-        //     } else {
-        //         removeProduct = false;
-        //     }
-        // }
+            if (decisionRemove == 1) {
+                System.out.println("Qual o nome do produto que deseja remover?");
+                nameProduct = scanner.next();
+                System.out.println("Quantos do mesmo produto deseja remover?");
+                quantityRemove = scanner.nextInt();
+                shoppingCart.removeProduct(nameProduct, quantityRemove);
+            } else {
+                removeProduct = false;
+            }
+        }
 
         scanner.close();
+
+        // listagem dos produtos no carrinho
+        productsPrint = shoppingCart.getContents();
+        System.out.printf("Lista de produtos:\n%s\n", productsPrint);
+        
+        // valor total dos produtos no carrinho
+        totalPrice = shoppingCart.getTotalPrice();
+        System.out.printf("O valor total da compra é %.2f\n", totalPrice);
     }
 }
