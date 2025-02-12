@@ -1,11 +1,12 @@
 package aula10022025.entities;
 
 import java.util.ArrayList;
-import aula10022025.entities.Product;
+import java.util.stream.Collectors;
 
 public class ShoppingCart {
     private int customerID;
     private ArrayList<Product> productList = new ArrayList<Product>();
+    ArrayList<Product> auxList;
     Product product;
 
     public ShoppingCart(int customerID, ArrayList<Product> productList) {
@@ -13,6 +14,7 @@ public class ShoppingCart {
         this.productList = productList;
     }
 
+    // esse método está funcionando
     public void addProduct(String productName, double productPrice) {
         product = new Product(productName, productPrice);
         this.productList.add(product);
@@ -34,19 +36,26 @@ public class ShoppingCart {
     //     }
     // }
     
+    // esse método está funcionando
     public String getContents() {
-        return "Nome: " + product.getName() + ", Preço: " + product.getPrice();
+        auxList = productList;
+        return auxList.stream().map(product -> "Nome: " + product.getName() + ", Preço: " + product.getPrice()).collect(Collectors.joining("\n"));
     }
 
-    // public int getCustomerID() {
-    //     return 1; //editar aqui
-    // }
+    // esse método está funcionando
+    public int getCustomerID() {
+        return customerID;
+    }
 
+    // esse método está funcionando
     public int getItemCount(String productName) {
-        return (int) this.productList.stream().filter(product -> product.getName().equals(productName)).count();
+        auxList = productList;
+        return (int) auxList.stream().filter(product -> product.getName().equals(productName)).count();
     }
 
-    // public double getTotalPrice() {
-    //     return 1.0; // editar aqui
-    // }
+    // esse método está funcionando
+    public double getTotalPrice() {
+        auxList = productList;
+        return auxList.stream().mapToDouble(Product::getPrice).sum();
+    }
 }

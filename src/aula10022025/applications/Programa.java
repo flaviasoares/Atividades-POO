@@ -8,17 +8,17 @@ import aula10022025.entities.ShoppingCart;
 public class Programa {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int customerID, quantityRemove;
+        // int quantityRemove;
         String nameProduct;
         double priceProduct;
         ArrayList<Product> productList = new ArrayList<Product>();
         
         System.out.println("Entre com a identificação do cliente:");
-        customerID = scanner.nextInt();
+        int customerID = scanner.nextInt();
         ShoppingCart shoppingCart = new ShoppingCart(customerID, productList);
 
-        boolean addProduct = true, removeProduct = true;
-        int decisionAdd, decisionRemove;
+        boolean addProduct = true;
+        int decisionAdd;
 
         while (addProduct) {
             System.out.println("Digite o nome do produto:");
@@ -36,8 +36,19 @@ public class Programa {
                 addProduct = false;
             }
         }
+        
+        String productsPrint = shoppingCart.getContents();
+        System.out.printf("Lista de produtos:\n%s", productsPrint);
+        
+        double totalPrice = shoppingCart.getTotalPrice();
+        System.out.printf("O valor total da compra é %.2f\n", totalPrice);
 
-        shoppingCart.getContents();
+        // quantidade de produtos com mesmo nome
+        // int quantityProduct = shoppingCart.getItemCount("computador");
+        // System.out.printf("O seu carrinho contém %d computadores.\n", quantityProduct);
+
+        // boolean removeProduct = true;
+        // int decisionRemove;
         
         // while (removeProduct) {
         //     System.out.println("Deseja remover algum produto?");
@@ -56,8 +67,5 @@ public class Programa {
         // }
 
         scanner.close();
-
-        shoppingCart = new ShoppingCart(customerID, productList);
-        System.out.println(shoppingCart);
     }
 }
