@@ -1,4 +1,4 @@
-package aula10022025.entities;
+package aula12022025.entities;
 
 public class Product {
     private String brand;

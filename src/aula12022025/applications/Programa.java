@@ -1,4 +1,4 @@
-package aula10022025.applications;
+package aula12022025.applications;
 
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package aula10022025.entities;
+package aula12022025.entities;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
