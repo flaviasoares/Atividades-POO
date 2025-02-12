@@ -23,12 +23,12 @@ public class ShoppingCart {
     public void removeProduct(String productName, int quantityRemove) {
         int quantityProduct = getItemCount(productName);
         if (quantityRemove == quantityProduct) {
-            productList.removeIf(product -> product.getBrand().equals(productName));
+            productList.removeIf(product -> product.getName().equals(productName));
         } else {
             int count = 0;
             Iterator<Product> it = productList.iterator();
             while (it.hasNext()) {
-                if (it.next().getBrand().equals(productName)) {
+                if (it.next().getName().equals(productName)) {
                     it.remove();
                     count++;
 
@@ -41,7 +41,7 @@ public class ShoppingCart {
     
     public String getContents() {
         auxList = productList;
-        return auxList.stream().map(product -> "Marca: " + product.getBrand() + ", Preço: " + product.getPrice()).collect(Collectors.joining("\n"));
+        return auxList.stream().map(product -> "Marca: " + product.getName() + ", Preço: " + product.getPrice()).collect(Collectors.joining("\n"));
     }
 
     public int getCustomerID() {
@@ -50,7 +50,7 @@ public class ShoppingCart {
 
     public int getItemCount(String productName) {
         auxList = productList;
-        return (int) auxList.stream().filter(product -> product.getBrand().equals(productName)).count();
+        return (int) auxList.stream().filter(product -> product.getName().equals(productName)).count();
     }
 
     public double getTotalPrice() {

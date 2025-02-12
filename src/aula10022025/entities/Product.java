@@ -1,16 +1,16 @@
 package aula10022025.entities;
 
 public class Product {
-    private String brand;
+    private String name;
     private double price;
 
-    public Product(String brand, double price) {
-        this.brand = brand;
+    public Product(String name, double price) {
+        this.name = name;
         this.price = price;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getName() {
+        return name;
     }
 
     public double getPrice() {

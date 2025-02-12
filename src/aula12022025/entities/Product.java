@@ -1,12 +1,20 @@
 package aula12022025.entities;
 
 public class Product {
-    private String brand;
-    private double price;
+    protected int typeID;
+    protected String brand;
+    protected double price;
+    protected String type;
 
-    public Product(String brand, double price) {
+    public Product(int typeID, String type, String brand, double price) {
+        this.typeID = typeID;
+        this.type = type;
         this.brand = brand;
         this.price = price;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String getBrand() {

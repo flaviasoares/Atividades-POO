@@ -2,15 +2,16 @@ package aula12022025.applications;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import aula10022025.entities.Product;
-import aula10022025.entities.ShoppingCart;
+import aula12022025.entities.Product;
+import aula12022025.entities.ShoppingCart;
 
 public class Programa {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int quantityRemove;
-        String nameProduct;
-        double priceProduct;
+        int productTypeID, quantityRemove;
+        String productBrand, productType;
+        double productPrice;
+        int productSize;
         ArrayList<Product> productList = new ArrayList<Product>();
         
         System.out.println("Entre com a identificação do cliente:");
@@ -21,19 +22,81 @@ public class Programa {
         int decisionAdd;
         // adicionar produtos no carrinho
         while (addProduct) {
-            System.out.println("Digite o nome do produto:");
-            nameProduct = scanner.next();
-            System.out.println("Digite o valor do produto:");
-            priceProduct = scanner.nextDouble();
+            System.out.println("Escolha o tipo de produto:");
+            System.out.printf("1. Refrigerador\n2. Forno\n3. TV\n4. Outro");
+            productTypeID = scanner.nextInt();
+            if (productTypeID == 1) {
+                System.out.println("Digite a marca do refrigerador:");
+                productBrand = scanner.next();
+                System.out.println("Digite o valor do refrigerador:");
+                productPrice = scanner.nextDouble();
+                System.out.println("Digite o tamanho do refrigerador:");
+                productSize = scanner.nextInt();
 
-            shoppingCart.addProduct(nameProduct, priceProduct);
+                shoppingCart.addProduct(productTypeID, "Refrigerador", productBrand, productPrice, productSize);
 
-            System.out.println("Deseja adicionar mais algum produto?");
-            System.out.println("1. Sim\n2. Não");
-            decisionAdd = scanner.nextInt();
+                System.out.println("Deseja adicionar mais algum produto?");
+                System.out.println("1. Sim\n2. Não");
+                decisionAdd = scanner.nextInt();
 
-            if (decisionAdd == 2) {
-                addProduct = false;
+                if (decisionAdd == 2) {
+                    addProduct = false;
+                }
+
+            } else if (productTypeID == 2) {
+                System.out.println("Digite a marca do forno:");
+                productBrand = scanner.next();
+                System.out.println("Digite o valor do forno:");
+                productPrice = scanner.nextDouble();
+                System.out.println("Digite o tamanho do forno:");
+                productSize = scanner.nextInt();
+                shoppingCart.addProduct(productTypeID, "Forno", productBrand, productPrice, productSize);
+
+                System.out.println("Deseja adicionar mais algum produto?");
+                System.out.println("1. Sim\n2. Não");
+                decisionAdd = scanner.nextInt();
+
+                if (decisionAdd == 2) {
+                    addProduct = false;
+                }
+                
+            } else if (productTypeID == 3) {
+                System.out.println("Digite a marca da TV:");
+                productBrand = scanner.next();
+                System.out.println("Digite o valor da TV:");
+                productPrice = scanner.nextDouble();
+                System.out.println("Digite o tamanho da TV:");
+                productSize = scanner.nextInt();
+                shoppingCart.addProduct(productTypeID, "TV", productBrand, productPrice, productSize);
+
+                System.out.println("Deseja adicionar mais algum produto?");
+                System.out.println("1. Sim\n2. Não");
+                decisionAdd = scanner.nextInt();
+
+                if (decisionAdd == 2) {
+                    addProduct = false;
+                }
+                
+            } else if (productTypeID == 4) {
+                System.out.println("Digite o tipo do produto:");
+                productType = scanner.next();
+                System.out.println("Digite a marca do produto:");
+                productBrand = scanner.next();
+                System.out.println("Digite o valor do produto:");
+                productPrice = scanner.nextDouble();
+
+                shoppingCart.addProduct(productTypeID, productType, productBrand, productPrice, 0);
+
+                System.out.println("Deseja adicionar mais algum produto?");
+                System.out.println("1. Sim\n2. Não");
+                decisionAdd = scanner.nextInt();
+
+                if (decisionAdd == 2) {
+                    addProduct = false;
+                }
+                
+            } else {
+                System.out.println("O valor digitado é inválido.");
             }
         }
         
@@ -55,11 +118,11 @@ public class Programa {
             decisionRemove = scanner.nextInt();
 
             if (decisionRemove == 1) {
-                System.out.println("Qual o nome do produto que deseja remover?");
-                nameProduct = scanner.next();
+                System.out.println("Qual o tipo de produto que deseja remover?");
+                productType = scanner.next();
                 System.out.println("Quantos do mesmo produto deseja remover?");
                 quantityRemove = scanner.nextInt();
-                shoppingCart.removeProduct(nameProduct, quantityRemove);
+                shoppingCart.removeProduct(productType, quantityRemove);
             } else {
                 removeProduct = false;
             }
