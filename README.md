@@ -1,18 +1,39 @@
-## Getting Started
+# Object-Oriented Programming in Java – Course Assignments  
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This repository contains Java programming assignments for my Object-Oriented Programming (OOP) course. Each lesson includes a coding task that demonstrates key OOP principles and best practices.  
 
-## Folder Structure
+## 📁 Repository Structure  
 
-The workspace contains two folders by default, where:
+The project follows a structured organization to keep assignments well-organized:  
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- **`src/`** – Contains all source code files.  
+  - Each assignment is stored in a separate subfolder named using the format: `aulaYYYYMMDD` (e.g., `aula20250212`).  
+- **`lib/`** – Stores external dependencies, if required.  
+- **`bin/`** – Contains compiled output files.  
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## 🚀 Getting Started  
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+To run the assignments locally, follow these steps:  
 
-## Dependency Management
+1. **Clone the repository**  
+   ```sh
+   git clone https://github.com/your-username/your-repository.git
+   ```
+2. **Open the project in VS Code** (or any Java-compatible IDE).  
+3. **Ensure Java is installed** (`JDK 17+` recommended).  
+4. **Compile and run the Java files** using:  
+   ```sh
+   javac src/aulaYYYYMMDD/applications/Program.java
+   java -cp src aulaYYYYMMDD.Program
+   ```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## 🔧 Development Setup  
+
+For an optimized development experience, consider using:  
+
+- **[Visual Studio Code](https://code.visualstudio.com/)** with the Java Extension Pack.    
+
+## 📌 Notes  
+
+- Each assignment is designed to reinforce OOP concepts such as encapsulation, inheritance, polymorphism, and abstraction.  
+- Code improvements and optimizations are welcome—feel free to contribute!  
