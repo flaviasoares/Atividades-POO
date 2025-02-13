@@ -135,7 +135,7 @@ public class Programa {
             // valor total dos produtos no carrinho
             totalPrice = shoppingCart.getTotalPrice();
             System.out.printf("O valor total da compra é %.2f\n", totalPrice);
-            }
+        }
 
         scanner.close();
     }
