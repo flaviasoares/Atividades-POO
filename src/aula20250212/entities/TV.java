@@ -3,8 +3,8 @@ package aula20250212.entities;
 public class TV extends Product {
     int inches;
 
-    public TV(int typeID, String type, String brand, double price, int inches) {
-        super(typeID, type, brand, price);
+    public TV(String type, String brand, double price, int inches) {
+        super(type, brand, price);
         this.inches = inches;
     }
 
