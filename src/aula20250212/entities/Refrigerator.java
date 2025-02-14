@@ -3,8 +3,8 @@ package aula20250212.entities;
 public class Refrigerator extends Product{
     private int size;
 
-    public Refrigerator(int typeID, String type, String brand, double price, int size) {
-        super(typeID, type, brand, price);
+    public Refrigerator(String type, String brand, double price, int size) {
+        super(type, brand, price);
         this.size = size;
     }
 
