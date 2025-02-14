@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class ShoppingCart {
     private int customerID;
     private ArrayList<Product> productList = new ArrayList<Product>();
-    private ArrayList<Product> auxList = new ArrayList<Product>();
+    private ArrayList<Product> auxList;
     Product product;
     Refrigerator refrigerator;
     Stove stove;
@@ -20,19 +20,19 @@ public class ShoppingCart {
 
     public void addProduct(int productTypeID, String productType, String productBrand, double productPrice, int productSize) {
         if (productTypeID == 1) {
-            refrigerator = new Refrigerator(productTypeID, productType, productBrand, productPrice, productSize);
+            refrigerator = new Refrigerator(productType, productBrand, productPrice, productSize);
             productList.add(refrigerator);
 
         } else if (productTypeID == 2) {
-            stove = new Stove(productTypeID, productType, productBrand, productPrice, productSize);
+            stove = new Stove(productType, productBrand, productPrice, productSize);
             productList.add(stove);
             
         } else if (productTypeID == 3) {
-            tv = new TV(productTypeID, productType, productBrand, productPrice, productSize);
+            tv = new TV(productType, productBrand, productPrice, productSize);
             productList.add(tv);
             
         } else if (productTypeID == 4) {
-            product = new Product(productTypeID, productType, productBrand, productPrice);
+            product = new Product(productType, productBrand, productPrice);
             productList.add(product);
         }
     }

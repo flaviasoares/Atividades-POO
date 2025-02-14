@@ -1,13 +1,11 @@
 package aula12022025.entities;
 
 public class Product {
-    protected int typeID;
+    protected String type;
     protected String brand;
     protected double price;
-    protected String type;
 
-    public Product(int typeID, String type, String brand, double price) {
-        this.typeID = typeID;
+    public Product(String type, String brand, double price) {
         this.type = type;
         this.brand = brand;
         this.price = price;

@@ -3,8 +3,8 @@ package aula12022025.entities;
 public class Stove extends Product {
     private int burners;
 
-    public Stove(int typeID, String type, String brand, double price, int burners) {
-        super(typeID, type, brand, price);
+    public Stove(String type, String brand, double price, int burners) {
+        super(type, brand, price);
         this.burners = burners;
     }
 
