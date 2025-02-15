@@ -50,7 +50,6 @@ public class ShoppingCart {
 
                     if (count == quantityRemove) break;
                 }
-                else break;
             }
         }
     }
@@ -64,7 +63,7 @@ public class ShoppingCart {
     }
 
     public int getItemCount(String productType) {
-        return (int) productList.stream().filter(product -> product.getBrand().equals(productType)).count();
+        return (int) productList.stream().filter(product -> product.getType().equals(productType)).count();
     }
 
     public double getTotalPrice() {
