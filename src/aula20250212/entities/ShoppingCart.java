@@ -38,20 +38,26 @@ public class ShoppingCart {
 
     public void removeProduct(String productType, int quantityRemove) {
         int quantityProduct = getItemCount(productType);
-        if (quantityRemove == quantityProduct) {
-            productList.removeIf(product -> product.getType().equals(productType));
-        } else {
-            int count = 0;
-            Iterator<Product> it = productList.iterator();
-            while (it.hasNext()) {
-                if (it.next().getType().equals(productType)) {
-                    it.remove();
-                    count++;
 
-                    if (count == quantityRemove) break;
+        if (quantityProduct > 0) {
+            if (quantityRemove <= quantityProduct && quantityRemove > 0) {
+                int count = 0;
+                Iterator<Product> it = productList.iterator();
+                while (it.hasNext()) {
+                    if (it.next().getType().equals(productType)) {
+                        it.remove();
+                        count++;
+        
+                        if (count == quantityRemove) break;
+                    }
                 }
+            }  else {
+                System.out.println("Nenhum produto foi removido.");
             }
+        } else {
+            System.out.println("Erro ao remover os produtos do carrinho de compras.");
         }
+
     }
     
     public String getContents() {
