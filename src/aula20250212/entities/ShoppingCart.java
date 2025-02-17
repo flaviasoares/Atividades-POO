@@ -17,20 +17,20 @@ public class ShoppingCart {
         this.productList = productList;
     }
 
-    public void addProduct(int productTypeID, String productType, String productBrand, double productPrice, int productSize) {
-        if (productTypeID == 1) {
+    public void addProduct(String productType, String productBrand, double productPrice, int productSize) {
+        if (productType == "refrigerator") {
             refrigerator = new Refrigerator(productType, productBrand, productPrice, productSize);
             productList.add(refrigerator);
 
-        } else if (productTypeID == 2) {
+        } else if (productType == "stove") {
             stove = new Stove(productType, productBrand, productPrice, productSize);
             productList.add(stove);
             
-        } else if (productTypeID == 3) {
+        } else if (productType == "tv") {
             tv = new TV(productType, productBrand, productPrice, productSize);
             productList.add(tv);
             
-        } else if (productTypeID == 4) {
+        } else {
             product = new Product(productType, productBrand, productPrice);
             productList.add(product);
         }

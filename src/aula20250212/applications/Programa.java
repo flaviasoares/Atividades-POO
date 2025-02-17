@@ -54,7 +54,7 @@ public class Programa {
             System.out.printf("Digite o valor do(a) %s: ", productType);
             productPrice = scanner.nextDouble();
 
-            shoppingCart.addProduct(productTypeID, productType, productBrand, productPrice, productSize);
+            shoppingCart.addProduct(productType, productBrand, productPrice, productSize);
 
             System.out.println("Deseja adicionar mais algum produto?");
             System.out.println("1. Sim\n2. Não");
