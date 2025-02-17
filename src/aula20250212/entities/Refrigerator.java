@@ -26,4 +26,19 @@ public class Refrigerator extends Product{
     public int getSize() {
         return size;
     }
+
+    // @Override
+    // public double getTax() {
+    //     return something;
+    // }
+
+    // @Override
+    // public double getPriceWithTax() {
+    //     return price + this.getTax();
+    // }
+
+    @Override
+    public double toString() {
+        return "Tipo: " + this.getType() + "Marca: " + this.getBrand() + "Preço: " + this.getPrice() + "Capacidade: " + this.getSize();
+    }
 }

@@ -26,4 +26,9 @@ public class Stove extends Product {
     public int getBurners() {
         return burners;
     }
+
+    @Override
+    public double toString() {
+        return "Tipo: " + this.getType() + "Marca: " + this.getBrand() + "Preço: " + this.getPrice() + "Acendedores: " + this.getBurners();
+    }
 }

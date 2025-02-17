@@ -1,6 +1,6 @@
 package aula20250212.entities;
 
-public class Product {
+public abstract class Product {
     protected String type;
     protected String brand;
     protected double price;
@@ -21,5 +21,18 @@ public class Product {
 
     public double getPrice() {
         return price;
+    }
+
+    // public abstract double getTax() {
+    //     return something;
+    // }
+
+    // public double getPriceWithTax() {
+    //     return price + this.getTax();
+    // }
+
+    @Override
+    public double toString() {
+        return "Tipo: " + this.getType() + "Marca: " + this.getBrand() + "Preço: " + this.getPrice();
     }
 }

@@ -7,27 +7,26 @@ import java.util.Iterator;
 public class ShoppingCart {
     private int customerID;
     private ArrayList<Product> productList = new ArrayList<Product>();
-    Product product;
-    Refrigerator refrigerator;
-    Stove stove;
-    TV tv;
 
     public ShoppingCart(int customerID, ArrayList<Product> productList) {
         this.customerID = customerID;
         this.productList = productList;
     }
 
+    // precisa testar
     public void addProduct(String productType, String productBrand, double productPrice, int productSize) {
+        Product product;
+
         if (productType == "refrigerator") {
-            refrigerator = new Refrigerator(productType, productBrand, productPrice, productSize);
+            product = new Refrigerator(productType, productBrand, productPrice, productSize);
             productList.add(refrigerator);
 
         } else if (productType == "stove") {
-            stove = new Stove(productType, productBrand, productPrice, productSize);
+            product = new Stove(productType, productBrand, productPrice, productSize);
             productList.add(stove);
             
         } else if (productType == "tv") {
-            tv = new TV(productType, productBrand, productPrice, productSize);
+            product = new TV(productType, productBrand, productPrice, productSize);
             productList.add(tv);
             
         } else {
@@ -59,7 +58,8 @@ public class ShoppingCart {
         }
 
     }
-    
+
+    // refazer esse método com base nos novos métodos adicionados às classes
     public String getContents() {
         return productList.stream().map(product -> "Tipo: " + product.getType() + ", Marca: " + product.getBrand() + ", Preço: " + product.getPrice()).collect(Collectors.joining("\n"));
     }

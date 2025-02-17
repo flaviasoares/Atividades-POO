@@ -26,4 +26,9 @@ public class TV extends Product {
     public int getInches() {
         return inches;
     }
+
+    @Override
+    public double toString() {
+        return "Tipo: " + this.getType() + "Marca: " + this.getBrand() + "Preço: " + this.getPrice() + "Polegadas: " + this.getInches();
+    }
 }
