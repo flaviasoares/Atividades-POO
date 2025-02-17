@@ -5,7 +5,7 @@ import java.util.Scanner;
 import aula20250212.entities.Product;
 import aula20250212.entities.ShoppingCart;
 
-public class Programa {
+public class Program {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int productTypeID, quantityRemove;
