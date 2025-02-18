@@ -8,11 +8,10 @@ import aula20250212.entities.ShoppingCart;
 public class Program {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int productTypeID, quantityRemove;
+        ArrayList<Product> productList = new ArrayList<Product>();
+        int productTypeID = 0, quantityRemove, productSize;
         String productBrand, productType = "";
         double productPrice;
-        int productSize = 0;
-        ArrayList<Product> productList = new ArrayList<Product>();
         
         System.out.println("Entre com a identificação do cliente:");
         int customerID = scanner.nextInt();
@@ -23,32 +22,23 @@ public class Program {
         // adicionar produtos no carrinho
         while (addProduct) {
             System.out.println("Escolha o tipo de produto:");
-            System.out.printf("1. Refrigerador\n2. Forno\n3. TV\n4. Outro\n");
+            System.out.printf("1. Refrigerador\n2. Forno\n3. TV\n");
             productTypeID = scanner.nextInt();
 
             if (productTypeID == 1) {
                 productType = "refrigerador";
                 System.out.printf("Digite o volume (em litros) do %s: ", productType);
-                productSize = scanner.nextInt();
 
             } else if (productTypeID == 2) {
                 productType = "forno";
                 System.out.printf("Digite a quantidade de acendedores do %s: ", productType);
-                productSize = scanner.nextInt();
 
             } else if (productTypeID == 3) {
                 productType = "tv";
                 System.out.printf("Digite o tamanho (em polegadas) da %s: ", productType);
-                productSize = scanner.nextInt();
+            }
 
-            } else if (productTypeID == 4) {
-                System.out.println("Digite o tipo de produto:");
-                productType = scanner.next();
-                System.out.printf("Digite o tamanho/volume do(a) %s: ", productType);
-                productSize = scanner.nextInt();
-
-            }  else { System.out.println("O valor digitado é inválido."); }
-
+            productSize = scanner.nextInt();
             System.out.printf("Digite a marca do(a) %s: ", productType);
             productBrand = scanner.next();
             System.out.printf("Digite o valor do(a) %s: ", productType);

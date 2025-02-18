@@ -23,12 +23,17 @@ public class TV extends Product {
         return price;
     }
 
+    @Override
+    public double getTax() {
+        return 0.012 * getPrice();
+    }
+
     public int getInches() {
         return inches;
     }
 
     @Override
-    public double toString() {
-        return "Tipo: " + this.getType() + "Marca: " + this.getBrand() + "Preço: " + this.getPrice() + "Polegadas: " + this.getInches();
+    public String toString() {
+        return "Tipo: " + this.getType() + ", Marca: " + this.getBrand() + ", Preço: " + this.getPrice() + ", Polegadas: " + this.getInches() + ", Preço + Taxa: " + this.getPriceWithTax();
     }
 }

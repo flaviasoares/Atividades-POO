@@ -23,16 +23,14 @@ public abstract class Product {
         return price;
     }
 
-    // public abstract double getTax() {
-    //     return something;
-    // }
+    public abstract double getTax();
 
-    // public double getPriceWithTax() {
-    //     return price + this.getTax();
-    // }
+    public double getPriceWithTax() {
+        return price + getTax();
+    }
 
     @Override
-    public double toString() {
+    public String toString() {
         return "Tipo: " + this.getType() + "Marca: " + this.getBrand() + "Preço: " + this.getPrice();
     }
 }

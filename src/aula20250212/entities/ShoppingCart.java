@@ -1,7 +1,6 @@
 package aula20250212.entities;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 import java.util.Iterator;
 
 public class ShoppingCart {
@@ -15,22 +14,20 @@ public class ShoppingCart {
 
     // precisa testar
     public void addProduct(String productType, String productBrand, double productPrice, int productSize) {
-        Product product;
 
-        if (productType == "refrigerator") {
-            product = new Refrigerator(productType, productBrand, productPrice, productSize);
-            productList.add(refrigerator);
+        if (productType.equals("refrigerador")) {
+            Refrigerator refrigerator = new Refrigerator(productType, productBrand, productPrice, productSize);
+            Product product = refrigerator;
+            productList.add(product);
 
-        } else if (productType == "stove") {
-            product = new Stove(productType, productBrand, productPrice, productSize);
-            productList.add(stove);
+        } else if (productType.equals("forno")) {
+            Stove stove = new Stove(productType, productBrand, productPrice, productSize);
+            Product product = stove;
+            productList.add(product);
             
-        } else if (productType == "tv") {
-            product = new TV(productType, productBrand, productPrice, productSize);
-            productList.add(tv);
-            
-        } else {
-            product = new Product(productType, productBrand, productPrice);
+        } else if (productType.equals("tv")) {
+            TV tv = new TV(productType, productBrand, productPrice, productSize);
+            Product product = tv;
             productList.add(product);
         }
     }
@@ -59,9 +56,13 @@ public class ShoppingCart {
 
     }
 
-    // refazer esse método com base nos novos métodos adicionados às classes
     public String getContents() {
-        return productList.stream().map(product -> "Tipo: " + product.getType() + ", Marca: " + product.getBrand() + ", Preço: " + product.getPrice()).collect(Collectors.joining("\n"));
+        StringBuilder shoppingCartList = new StringBuilder();
+        for (Product product : productList) {
+            shoppingCartList.append(product.toString()).append("\n");
+        }
+
+        return shoppingCartList.toString();
     }
 
     public int getCustomerID() {
@@ -73,6 +74,6 @@ public class ShoppingCart {
     }
 
     public double getTotalPrice() {
-        return productList.stream().mapToDouble(Product::getPrice).sum();
+        return productList.stream().mapToDouble(Product::getPriceWithTax).sum();
     }
 }

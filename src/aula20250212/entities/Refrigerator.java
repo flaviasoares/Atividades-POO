@@ -23,22 +23,17 @@ public class Refrigerator extends Product{
         return price;
     }
 
+    @Override
+    public double getTax() {
+        return 0.016 * getPrice();
+    }
+
     public int getSize() {
         return size;
     }
 
-    // @Override
-    // public double getTax() {
-    //     return something;
-    // }
-
-    // @Override
-    // public double getPriceWithTax() {
-    //     return price + this.getTax();
-    // }
-
     @Override
-    public double toString() {
-        return "Tipo: " + this.getType() + "Marca: " + this.getBrand() + "Preço: " + this.getPrice() + "Capacidade: " + this.getSize();
+    public String toString() {
+        return "Tipo: " + this.getType() + ", Marca: " + this.getBrand() + ", Preço: " + this.getPrice() + ", Capacidade: " + this.getSize() + ", Preço + Taxa: " + this.getPriceWithTax();
     }
 }
