@@ -5,25 +5,24 @@ import java.util.Scanner;
 import aula20250217.entities.Company;
 import aula20250217.entities.Individual;
 import aula20250217.entities.TaxPayer;
-import aula20250217.entities.TaxPayers;
+import aula20250217.entities.PayersList;
 
 public class Program {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<TaxPayer> taxPayerList = new ArrayList<TaxPayer>();
-        TaxPayers taxPayers = new TaxPayers(taxPayerList);
+        PayersList taxPayers = new PayersList(taxPayerList);
 
         int numTaxPayers, numEmployees;
-        String typePayer, name;
+        int count = 0;
+        String typePayer, name, taxesPaid;
         double anualIncome, healthExpend; 
 
         System.out.println("Enter the number of tax payers: ");
         numTaxPayers = scanner.nextInt();
-        int count = 0, aux = 0;
 
         while (count < numTaxPayers) {
-            aux = count + 1;
-            System.out.printf("Tax payer #%d data:\n", aux);
+            System.out.printf("Tax payer #%d data:\n", count + 1);
 
             System.out.println("Individual or company (i/c)? ");
             typePayer = scanner.next();
@@ -35,17 +34,21 @@ public class Program {
             anualIncome = scanner.nextDouble();
 
             if (typePayer.equals("i")) {
+
                 System.out.println("Health expenditures: ");
                 healthExpend = scanner.nextDouble();
                 Individual individual = new Individual(name, anualIncome, healthExpend);
                 TaxPayer taxPayer = individual;
                 taxPayers.addTaxPayer(taxPayer);
+
             } else if (typePayer.equals("c")) {
+
                 System.out.println("Number of employees: ");
                 numEmployees = scanner.nextInt();
                 Company company = new Company(name, anualIncome, numEmployees);
                 TaxPayer taxPayer = company;
                 taxPayers.addTaxPayer(taxPayer);
+
             }
 
             count++;
@@ -53,7 +56,7 @@ public class Program {
 
         scanner.close();
         
-        String taxesPaid = taxPayers.getDetails();
+        taxesPaid = taxPayers.getDetails();
         System.out.println("TAXES PAID:");
         System.out.println(taxesPaid);
 

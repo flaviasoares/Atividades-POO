@@ -12,7 +12,6 @@ public class ShoppingCart {
         this.productList = productList;
     }
 
-    // precisa testar
     public void addProduct(String productType, String productBrand, double productPrice, int productSize) {
 
         if (productType.equals("refrigerador")) {
