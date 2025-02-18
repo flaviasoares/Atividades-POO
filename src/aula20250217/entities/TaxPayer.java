@@ -20,7 +20,5 @@ public abstract class TaxPayer {
     public abstract double getTax();
 
     @Override
-    public String toString() {
-        return String.format("%s: $ %.2f", this.getName(), this.getAnualIncome());
-    }
+    public abstract String toString();
 }
