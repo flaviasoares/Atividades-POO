@@ -23,7 +23,17 @@ public class Stove extends Product {
         return price;
     }
 
+    @Override
+    public double getTax() {
+        return 0.008 * getPrice();
+    }
+
     public int getBurners() {
         return burners;
+    }
+
+    @Override
+    public String toString() {
+        return "Tipo: " + this.getType() + ", Marca: " + this.getBrand() + ", Preço: " + this.getPrice() + ", Acendedores: " + this.getBurners() + ", Preço + Taxa: " + this.getPriceWithTax();
     }
 }

@@ -1,37 +1,33 @@
 package aula20250212.entities;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 import java.util.Iterator;
 
 public class ShoppingCart {
     private int customerID;
     private ArrayList<Product> productList = new ArrayList<Product>();
-    Product product;
-    Refrigerator refrigerator;
-    Stove stove;
-    TV tv;
 
     public ShoppingCart(int customerID, ArrayList<Product> productList) {
         this.customerID = customerID;
         this.productList = productList;
     }
 
+    // precisa testar
     public void addProduct(String productType, String productBrand, double productPrice, int productSize) {
-        if (productType == "refrigerator") {
-            refrigerator = new Refrigerator(productType, productBrand, productPrice, productSize);
-            productList.add(refrigerator);
 
-        } else if (productType == "stove") {
-            stove = new Stove(productType, productBrand, productPrice, productSize);
-            productList.add(stove);
+        if (productType.equals("refrigerador")) {
+            Refrigerator refrigerator = new Refrigerator(productType, productBrand, productPrice, productSize);
+            Product product = refrigerator;
+            productList.add(product);
+
+        } else if (productType.equals("forno")) {
+            Stove stove = new Stove(productType, productBrand, productPrice, productSize);
+            Product product = stove;
+            productList.add(product);
             
-        } else if (productType == "tv") {
-            tv = new TV(productType, productBrand, productPrice, productSize);
-            productList.add(tv);
-            
-        } else {
-            product = new Product(productType, productBrand, productPrice);
+        } else if (productType.equals("tv")) {
+            TV tv = new TV(productType, productBrand, productPrice, productSize);
+            Product product = tv;
             productList.add(product);
         }
     }
@@ -59,9 +55,14 @@ public class ShoppingCart {
         }
 
     }
-    
+
     public String getContents() {
-        return productList.stream().map(product -> "Tipo: " + product.getType() + ", Marca: " + product.getBrand() + ", Preço: " + product.getPrice()).collect(Collectors.joining("\n"));
+        StringBuilder shoppingCartList = new StringBuilder();
+        for (Product product : productList) {
+            shoppingCartList.append(product.toString()).append("\n");
+        }
+
+        return shoppingCartList.toString();
     }
 
     public int getCustomerID() {
@@ -73,6 +74,6 @@ public class ShoppingCart {
     }
 
     public double getTotalPrice() {
-        return productList.stream().mapToDouble(Product::getPrice).sum();
+        return productList.stream().mapToDouble(Product::getPriceWithTax).sum();
     }
 }
