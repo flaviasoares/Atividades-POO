@@ -36,13 +36,13 @@ public class Program {
             if (typePayer.equals("i")) {
                 System.out.println("Health expenditures: ");
                 healthExpend = scanner.nextDouble();
-                TaxPayer taxPayer = (Individual) new Individual(name, anualIncome, healthExpend);
+                TaxPayer taxPayer = new Individual(name, anualIncome, healthExpend);
                 taxPayers.addTaxPayer(taxPayer);
 
             } else if (typePayer.equals("c")) {
                 System.out.println("Number of employees: ");
                 numEmployees = scanner.nextInt();
-                TaxPayer taxPayer = (Company) new Company(name, anualIncome, numEmployees);
+                TaxPayer taxPayer = new Company(name, anualIncome, numEmployees);
                 taxPayers.addTaxPayer(taxPayer);
             }
 
