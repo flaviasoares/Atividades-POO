@@ -34,21 +34,16 @@ public class Program {
             anualIncome = scanner.nextDouble();
 
             if (typePayer.equals("i")) {
-
                 System.out.println("Health expenditures: ");
                 healthExpend = scanner.nextDouble();
-                Individual individual = new Individual(name, anualIncome, healthExpend);
-                TaxPayer taxPayer = individual;
+                TaxPayer taxPayer = (Individual) new Individual(name, anualIncome, healthExpend);
                 taxPayers.addTaxPayer(taxPayer);
 
             } else if (typePayer.equals("c")) {
-
                 System.out.println("Number of employees: ");
                 numEmployees = scanner.nextInt();
-                Company company = new Company(name, anualIncome, numEmployees);
-                TaxPayer taxPayer = company;
+                TaxPayer taxPayer = (Company) new Company(name, anualIncome, numEmployees);
                 taxPayers.addTaxPayer(taxPayer);
-
             }
 
             count++;

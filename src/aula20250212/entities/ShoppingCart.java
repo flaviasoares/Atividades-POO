@@ -15,18 +15,15 @@ public class ShoppingCart {
     public void addProduct(String productType, String productBrand, double productPrice, int productSize) {
 
         if (productType.equals("refrigerador")) {
-            Refrigerator refrigerator = new Refrigerator(productType, productBrand, productPrice, productSize);
-            Product product = refrigerator;
+            Product product = (Refrigerator) new Refrigerator(productType, productBrand, productPrice, productSize);
             productList.add(product);
 
         } else if (productType.equals("forno")) {
-            Stove stove = new Stove(productType, productBrand, productPrice, productSize);
-            Product product = stove;
+            Product product = (Stove) new Stove(productType, productBrand, productPrice, productSize);
             productList.add(product);
             
         } else if (productType.equals("tv")) {
-            TV tv = new TV(productType, productBrand, productPrice, productSize);
-            Product product = tv;
+            Product product = (TV) new TV(productType, productBrand, productPrice, productSize);
             productList.add(product);
         }
     }
