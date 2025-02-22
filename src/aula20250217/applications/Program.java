@@ -20,7 +20,7 @@ public class Program {
             String typePayer = scanner.next().toLowerCase();
 
             System.out.println("Name: ");
-            scanner.nextLine(); // isso me parece muito errado
+            scanner.nextLine();
             String name = scanner.next();
 
             System.out.println("Annual income: ");
