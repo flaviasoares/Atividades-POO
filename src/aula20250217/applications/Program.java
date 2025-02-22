@@ -1,6 +1,5 @@
 package aula20250217.applications;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import aula20250217.entities.Company;
 import aula20250217.entities.Individual;
@@ -10,53 +9,42 @@ import aula20250217.entities.PayersList;
 public class Program {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<TaxPayer> taxPayerList = new ArrayList<TaxPayer>();
-        PayersList taxPayers = new PayersList(taxPayerList);
-
-        int numTaxPayers, numEmployees;
-        int count = 0;
-        String typePayer, name, taxesPaid;
-        double anualIncome, healthExpend; 
+        PayersList taxPayers = new PayersList();
 
         System.out.println("Enter the number of tax payers: ");
-        numTaxPayers = scanner.nextInt();
+        int numTaxPayers = scanner.nextInt();
 
-        while (count < numTaxPayers) {
-            System.out.printf("Tax payer #%d data:\n", count + 1);
-
+        for (int i = 0; i < numTaxPayers; i++) {
+            System.out.printf("Tax payer #%d data:\n", i + 1);
             System.out.println("Individual or company (i/c)? ");
-            typePayer = scanner.next();
+            String typePayer = scanner.next().toLowerCase();
 
             System.out.println("Name: ");
-            name = scanner.next();
+            scanner.nextLine(); // isso me parece muito errado
+            String name = scanner.next();
 
-            System.out.println("Anual income: ");
-            anualIncome = scanner.nextDouble();
+            System.out.println("Annual income: ");
+            double annualIncome = scanner.nextDouble();
 
+            TaxPayer taxPayer = null;
             if (typePayer.equals("i")) {
                 System.out.println("Health expenditures: ");
-                healthExpend = scanner.nextDouble();
-                TaxPayer taxPayer = new Individual(name, anualIncome, healthExpend);
-                taxPayers.addTaxPayer(taxPayer);
+                double healthExpend = scanner.nextDouble();
+                taxPayer = new Individual(name, annualIncome, healthExpend);
 
             } else if (typePayer.equals("c")) {
                 System.out.println("Number of employees: ");
-                numEmployees = scanner.nextInt();
-                TaxPayer taxPayer = new Company(name, anualIncome, numEmployees);
-                taxPayers.addTaxPayer(taxPayer);
+                int numEmployees = scanner.nextInt();
+                taxPayer = new Company(name, annualIncome, numEmployees);
             }
 
-            count++;
+            taxPayers.addTaxPayer(taxPayer);
         }
 
         scanner.close();
         
-        taxesPaid = taxPayers.getDetails();
         System.out.println("TAXES PAID:");
-        System.out.println(taxesPaid);
-
-        double totalTaxes = taxPayers.getTotalTaxes();
-
-        System.out.printf("TOTAL TAXES: %.2f", totalTaxes);
+        System.out.println(taxPayers.getDetails());
+        System.out.printf("TOTAL TAXES: %.2f", taxPayers.getTotalTaxes());
     }
 }

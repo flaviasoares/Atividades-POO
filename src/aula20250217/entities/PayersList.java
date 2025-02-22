@@ -3,10 +3,10 @@ package aula20250217.entities;
 import java.util.ArrayList;
 
 public class PayersList {
-    private ArrayList<TaxPayer> taxPayersList = new ArrayList<TaxPayer>();
+    private ArrayList<TaxPayer> taxPayersList;
 
-    public PayersList(ArrayList<TaxPayer> taxPayersList) {
-        this.taxPayersList = taxPayersList;
+    public PayersList() {
+        this.taxPayersList = new ArrayList<>();
     }
 
     public void addTaxPayer(TaxPayer taxPayer) {

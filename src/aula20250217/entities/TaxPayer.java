@@ -2,23 +2,25 @@ package aula20250217.entities;
 
 public abstract class TaxPayer {
     protected String name;
-    protected double anualIncome;
+    protected double annualIncome;
 
-    public TaxPayer(String name, double anualIncome) {
+    public TaxPayer(String name, double annualIncome) {
         this.name = name;
-        this.anualIncome = anualIncome;
+        this.annualIncome = annualIncome;
     }
 
     public String getName(){
         return name;
     }
 
-    public double getAnualIncome() {
-        return anualIncome;
+    public double getAnnualIncome() {
+        return annualIncome;
     }
 
     public abstract double getTax();
 
     @Override
-    public abstract String toString();
+    public String toString() {
+        return String.format("%s: $ %.2f", this.getName(), getTax());
+    }
 }
