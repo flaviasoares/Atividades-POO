@@ -17,7 +17,7 @@ To run the assignments locally, follow these steps:
 
 1. **Clone the repository**  
    ```sh
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/flaviasoares/Atividades-POO.git
    ```
 2. **Open the project in VS Code** (or any Java-compatible IDE).  
 3. **Ensure Java is installed** (`JDK 17+` recommended).  
