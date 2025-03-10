@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import aula20250226.problem1.entities.Reservation;
+import aula20250226.problem1.entities.exceptions.DateParseException;
+import aula20250226.problem1.entities.exceptions.ReservationException;
 
 public class Program {
     private static SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy"); // por que isso foi declarado aqui?
@@ -30,9 +32,9 @@ public class Program {
 
             reservation.updateDates(checkin, checkout);
             System.out.println(reservation);
-        } catch (ParseException e) {
-            System.out.println("Invalid date format.");
-        } catch (IllegalArgumentException e) {
+        } catch (DateParseException e) {
+            System.out.println("Invalid date format: " + e.getMessage());
+        } catch (ReservationException e) {
             System.out.println(e.getMessage());
         } finally {
             scanner.close();
